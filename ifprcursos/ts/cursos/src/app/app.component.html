@@ -1,0 +1,35 @@
+<mat-toolbar color="primary">
+    <span>IFPR - Instituto federal do Paraná - Foz do Iguaçu</span>
+</mat-toolbar>
+
+<div fxLayout="row">
+    <span fxFlex></span>
+
+    <mat-card fxFlex.gt-md="60" layout-margin>
+        <div fxLayout="column">
+            <div fxLayout="row" fxLayoutAlign="center center">
+                <h1>
+                    Responda o questionário a seguir para receber sua sugestão de curso
+                </h1>
+            </div>
+            
+            <div fxLayout="column" fxLayoutAlign="start start" *ngFor="let pergunta of perguntas">
+                <h3>{{pergunta.titulo}}</h3>
+                <mat-radio-group fxLayout="column" layout-margin name="{{pergunta.id}}" [(ngModel)]="pergunta.resposta">
+                    <mat-radio-button *ngFor="let alternativa of pergunta.alternativas" color="primary" value="{{alternativa.valor}}">
+                        {{alternativa.descricao}}
+                    </mat-radio-button>
+                </mat-radio-group>
+            </div>
+
+            <div fxLayout="row">
+                <button mat-raised-button fxFlex (click)="salvarResposta()">SALVAR RESPOSTA</button>
+            </div>
+        </div>
+    </mat-card>
+
+    <span fxFlex></span>
+    <button matTooltip="Voltar ao topo" *ngIf="showTopButton() || showButton" mat-fab style="position: fixed;top: 90%;left: 90%;" (click)="scrollTop();">
+        <mat-icon>keyboard_arrow_up</mat-icon>
+    </button>
+</div>

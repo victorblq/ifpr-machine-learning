@@ -1,0 +1,17 @@
+{
+    "/static": {
+        "target": "http://localhost:8000/static",
+        "secure": false,
+        "pathRewrite": {
+            "^/static": ""
+        }
+    },
+
+    "/": {
+        "target": "http://localhost:8000/",
+        "secure": false,
+        "pathRewrite": {
+            "^/": ""
+        }
+    }
+}

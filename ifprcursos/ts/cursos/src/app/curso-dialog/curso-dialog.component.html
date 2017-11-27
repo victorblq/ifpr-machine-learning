@@ -1,0 +1,14 @@
+<mat-toolbar color="primary">
+    De acordo com suas respostas...
+</mat-toolbar>
+
+<div style="padding: 15px">
+    <div fxLayout="column" fxLayoutAlign="center center">
+        <span>O curso sugerido é:</span>
+        <h1>{{curso?.nome}}</h1>
+    </div>
+</div>
+
+<div fxLayout="row">
+    <button fxFlex mat-raised-button (click)="dialogRef.close()">Ok</button>
+</div>
